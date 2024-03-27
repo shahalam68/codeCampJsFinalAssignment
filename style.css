@@ -1,0 +1,107 @@
+.container {
+  display: grid;
+  grid-template-columns: 100px auto;
+  height: 100%;
+}
+.left_bar {
+  border-right: 1px solid grey;
+  text-align: end;
+  padding-right: 10px;
+  height: 100vh;
+}
+.chat_icon {
+  width: 50px;
+  margin-top: 30px;
+}
+.home_icon {
+  width: 20px;
+  height: auto;
+  margin-top: 30px;
+}
+.notification {
+  width: 20px;
+  height: auto;
+  margin-top: 30px;
+}
+.settings {
+  width: 20px;
+  height: auto;
+  margin-top: 30px;
+}
+.logout {
+  width: 20px;
+  height: auto;
+  margin-top: 300px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.863);
+  padding: 20px;
+}
+.user {
+  display: flex;
+  text-align: center;
+  gap: 5px;
+}
+.user img {
+  width: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+.arrow img {
+  width: 15px;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.message_section {
+  display: grid;
+  grid-template-columns: 200px auto;
+  height: 84%;
+}
+.message {
+  display: flex;
+  gap: 10px;
+  padding-left: 20px;
+  background-color: rgba(137, 43, 226, 0.219);
+  border-bottom: 1px solid gray;
+}
+.message img {
+  width: 20px;
+}
+.message h4 {
+  color: rgb(139, 58, 214);
+}
+.menu {
+  border: 1.5px solid rgba(128, 128, 128, 0.705);
+  background-color: rgba(128, 128, 128, 0.13);
+}
+.link {
+  display: flex;
+  gap: 10px;
+  padding-left: 20px;
+  border-bottom: 1px solid gray;
+}
+.link img {
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+}
+.photos {
+  display: flex;
+  gap: 10px;
+  padding-left: 20px;
+  border-bottom: 1px solid gray;
+}
+.photos img {
+  width: 20px;
+  height: 20px;
+  margin-top: 20px;
+}
+.chat {
+  display: flex;
+  width: 95vh;
+  justify-content: space-between;
+  align-items: flex-end;
+}
