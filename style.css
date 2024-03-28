@@ -6,7 +6,7 @@
 .left_bar {
   border-right: 1px solid grey;
   text-align: end;
-  padding-right: 10px;
+  padding-right: 30px;
   height: 100vh;
 }
 .chat_icon {
@@ -99,9 +99,53 @@
   height: 20px;
   margin-top: 20px;
 }
+.chat-box {
+  padding: 10px;
+}
 .chat {
   display: flex;
-  width: 95vh;
+  height: 75vh;
   justify-content: space-between;
   align-items: flex-end;
+  padding: 10px;
+}
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgba(128, 128, 128, 0.226);
+  background-image: url("assets/icons8-link-50.png");
+  background-size: 20px 20px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+.input-area {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto 80px; /* Adjust the grid template columns */
+}
+
+.input-area button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #007bff; /* Example background color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input-area button:hover {
+  background-color: #0056b3; /* Example hover background color */
+}
+
+.btn_img img {
+  width: 20px;
+  height: 20px;
+  margin-top: 0;
+  margin-left: 10px;
 }
