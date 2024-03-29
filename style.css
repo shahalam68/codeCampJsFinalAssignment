@@ -4,35 +4,11 @@
   border: none;
   outline: none;
 }
-a {
-  text-decoration: none;
-  display: inline-block;
-}
-ul,
-ol {
-  list-style: none;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-ul,
-ol,
-span {
-  padding: 0;
-  margin: 0;
-}
+
 .container {
   height: 100vh !important;
   /* background: blue; */
 }
-
-/* ===============common css ends 
-======================= */
 
 .box {
   display: flex;
@@ -42,7 +18,6 @@ span {
 
 .leftbar {
   height: 100vh;
-  /* background: #5f35f5; */
   text-align: center;
   width: 10%;
   border-right: 1px solid gray;
@@ -190,15 +165,15 @@ span {
 }
 
 .chat-messages {
-  display: flex; /* Change to flex container */
-  flex-direction: column-reverse; /* Reverse column direction to start from the bottom */
-  flex: 1; /* Grow to fill remaining vertical space */
+  display: flex;
+  flex-direction: column-reverse;
+  flex: 1;
   padding: 20px;
-  box-sizing: border-box; /* Ensure padding is included in height */
+  box-sizing: border-box;
 
-  height: 100% !important; /* Set initial height to 70% of its container */
+  height: 100% !important;
 
-  overflow-y: auto; /* Add scrollbar when content exceeds height */
+  overflow-y: auto;
 }
 input[type="text"] {
   width: 100%;
@@ -216,14 +191,14 @@ input[type="text"] {
 .input-area {
   display: grid;
   gap: 10px;
-  grid-template-columns: auto 80px; /* Adjust the grid template columns */
+  grid-template-columns: auto 80px;
 }
 
 .input-area button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #007bff; /* Example background color */
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
@@ -231,32 +206,29 @@ input[type="text"] {
 }
 
 .input-area button:hover {
-  background-color: #0056b3; /* Example hover background color */
+  background-color: #0056b3;
 }
 
 .btn_img img {
   width: 20px;
   height: 20px;
   margin-top: 0;
-  /* margin-left: 10px; */
 }
 .btn_img {
-  position: absolute; /* Add this line */
+  position: absolute;
   right: 15px;
   margin-bottom: 20px;
 }
 
 .sent {
-  /* background-color: pink; */
   display: flex;
-  text-align: right; /* Align text to right */
-  align-self: flex-end; /* Align sent messages to the bottom */
+  text-align: right;
+  align-self: flex-end;
   margin-top: 10px;
 }
 
 .received {
-  /* background-color: darkorange; */
-  align-self: flex-start; /* Align received messages to the top */
+  align-self: flex-start;
   margin-top: 10px;
 }
 
@@ -264,11 +236,11 @@ input[type="text"] {
   margin-bottom: 10px;
   padding: 10px;
   border-radius: 5px;
-  text-align: right; /* Align text to right */
+  text-align: right;
 }
 
 .message-input {
-  width: calc(100% - 150px); /* Adjusted width */
+  width: calc(100% - 150px);
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px 0 0 5px;
@@ -276,7 +248,7 @@ input[type="text"] {
 }
 
 .send-btn {
-  width: 100px; /* Adjusted width */
+  width: 100px;
   padding: 10px;
   border: none;
   background-color: #007bff;
@@ -292,10 +264,10 @@ input[type="text"] {
 
 .tick-mark {
   font-size: 20px;
-  border-radius: 50%; /* Make it rounded */
-  width: 100%; /* Set the width */
+  border-radius: 50%;
+  width: 100%;
   height: 15px;
-  /* Set the height */
+
   display: flex;
   align-items: center;
   justify-content: right;
@@ -309,11 +281,11 @@ input[type="text"] {
 
 .message-input {
   margin: 10px;
-  flex: 1; /* Take remaining space */
+  flex: 1;
 }
 
 .send-btn {
-  margin: 10px; /* Add some space between input and button */
+  margin: 10px;
 }
 
 @keyframes typing {
@@ -336,12 +308,10 @@ input[type="text"] {
 
 .typing-animation::after {
   content: ".";
-  animation: typing 1s infinite; /* Repeat the animation infinitely */
+  animation: typing 1s infinite;
 }
 
 .profile-pic {
-  /* background: #5f35f5; */
-  /* padding-left: 20px; */
   padding-right: 20px;
 }
 
@@ -351,17 +321,7 @@ input[type="text"] {
   display: flex;
   flex-direction: row-reverse;
 }
-/* .ReceiverProfilePic {
-  padding-right: 100px;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
-} */
 
-/* .profile-pic-img {
-  width: 100px;
-  height: 30px;
-} */
 .message-content {
   display: flex;
   flex-direction: column;
@@ -369,7 +329,7 @@ input[type="text"] {
 }
 
 .sender-name {
-  margin-bottom: 5px; /* Adjust spacing between sender's name and message text */
+  margin-bottom: 5px;
 }
 .chat-message {
   margin-bottom: 10px;
@@ -415,8 +375,8 @@ input[type="text"] {
 
   .chatBox {
     flex-direction: column;
-    padding-left: 20px; /* Add padding to the left side for mobile devices */
-    padding-right: 20px; /* Add padding to the right side for mobile devices */
+    padding-left: 20px;
+    padding-right: 20px;
     height: auto;
   }
 
@@ -445,8 +405,6 @@ input[type="text"] {
     width: 100%;
     border-right: none;
     text-align: left;
-    padding-left: 20px; /* Add padding to the left side for mobile devices */
+    padding-left: 20px;
   }
-
-  /* Add any other styles for mobile devices here */
 }

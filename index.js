@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   let lastSentMessage = null;
 
-  const messageInput = document.getElementById("message-input");
-  const sendBtn = document.getElementById("send-btn");
-  const chatMessages = document.getElementById("chat-messages");
+  const inputField = document.getElementById("message-input");
+  const sendButton = document.getElementById("send-btn");
+  const chatContainer = document.getElementById("chat-messages");
   const typingIndicator = document.getElementById("typing-indicator");
   typingIndicator.textContent = "Someone is typing...";
   typingIndicator.classList.add("typing-animation");
@@ -17,23 +17,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
   }
 
-  sendBtn.addEventListener("click", sendMessage);
+  sendButton.addEventListener("click", sendMessage);
 
-  messageInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
+  inputField.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
       sendMessage();
     }
   });
 
   function sendMessage() {
-    const message = messageInput.value.trim();
+    const message = inputField.value.trim();
     if (message !== "") {
       const messageDiv = appendMessage("sent", message);
       const sentTick = appendTick("grey", messageDiv);
       setTimeout(function () {
-        sentTick.style.color = "black"; // Delivered
+        sentTick.style.color = "black";
         setTimeout(function () {
-          sentTick.style.color = "green"; // Read
+          sentTick.style.color = "green";
         }, 1000);
       }, 2000);
 
@@ -45,10 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       setTimeout(function () {
         typingIndicator.style.visibility = "hidden";
-        appendMessage("received", "Thanks for your message!");
+        appendMessage(
+          "received",
+          "Thanks for your message! I'm just a chat bot"
+        );
       }, 7000);
 
-      messageInput.value = "";
+      inputField.value = "";
     }
   }
 
@@ -61,7 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const profilePicImg = document.createElement("img");
     profilePicImg.src =
-      type === "sent" ? "assets/profile-pic (5).png" : "assets/profile-pic (6).png";
+      type === "sent"
+        ? "assets/profile-pic (5).png"
+        : "assets/profile-pic (6).png";
     profilePicImg.alt = "Profile Picture";
     profilePicImg.className = "profile-pic-img";
 
@@ -78,8 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
     messageDiv.appendChild(profilePicContainer);
     messageDiv.appendChild(contentContainer);
 
-    chatMessages.prepend(messageDiv);
-    chatMessages.scrollTop = 0;
+    chatContainer.prepend(messageDiv);
+    chatContainer.scrollTop = 0;
 
     if (type === "sent" && lastSentMessage) {
       const lastSentProfilePicContainer =
@@ -106,4 +111,3 @@ document.addEventListener("DOMContentLoaded", function () {
     return tickSpan;
   }
 });
- 
