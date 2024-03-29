@@ -1,13 +1,22 @@
 .container {
   display: grid;
   grid-template-columns: 100px auto;
-  height: 100%;
+  height: 100vh;
 }
 .left_bar {
   border-right: 1px solid grey;
   text-align: end;
   padding-right: 30px;
-  height: 100vh;
+  height: 100%;
+}
+.right_section {
+  height: 100%;
+}
+.header {
+  height: 10%;
+}
+.message_section {
+  height: 90%;
 }
 .chat_icon {
   width: 50px;
@@ -41,24 +50,20 @@
 }
 .user {
   display: flex;
-  text-align: center;
+  align-items: center;
   gap: 5px;
 }
 .user img {
-  width: 20px;
-  text-align: center;
-  margin-top: 20px;
+  width: 25px;
 }
 .arrow img {
   width: 15px;
-  margin-top: 25px;
-  text-align: center;
+  margin-top: 7px;
 }
 
 .message_section {
   display: grid;
   grid-template-columns: 200px auto;
-  height: 84%;
 }
 .message {
   display: flex;
@@ -76,6 +81,7 @@
 .menu {
   border: 1.5px solid rgba(128, 128, 128, 0.705);
   background-color: rgba(128, 128, 128, 0.13);
+  height: 100%;
 }
 .link {
   display: flex;
@@ -101,14 +107,21 @@
 }
 .chat-box {
   padding: 10px;
+  position: relative;
+  width: 100%;
+  overflow-y: auto;
+  height: 90%;
+  background-color: #007bff;
 }
 .chat {
+  position: relative;
   display: flex;
-  height: 75vh;
+  /* height: 75vh; */
   justify-content: space-between;
   align-items: flex-end;
   padding: 10px;
 }
+
 input[type="text"] {
   width: 100%;
   box-sizing: border-box;
@@ -148,4 +161,28 @@ input[type="text"] {
   height: 20px;
   margin-top: 0;
   margin-left: 10px;
+}
+.first_person {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  background-color: #cccccc5b;
+  padding: 1px 20px;
+  border-radius: 4px;
+}
+.first_person img {
+  width: 20px;
+  height: 20px;
+}
+.second_person {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  background-color: #cccccc5b;
+  padding: 1px 20px;
+  border-radius: 4px;
+}
+.second_person img {
+  width: 20px;
+  height: 20px;
 }
