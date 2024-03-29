@@ -1,87 +1,109 @@
-// document.getElementById("submit_btn").addEventListener("click", function () {
-//   console.log("Button clicked");
-//   const inputField = document.getElementById("input_field");
-//   const inputText = inputField.value;
-//   console.log(inputText);
-//   inputField.value = "";
-//   const personOne =
-// });
-// const handleInput = () => {
-//   const inputField = document.getElementById("input_field");
-//   const inputText = inputField.value;
-//   console.log(inputText);
-//   inputField.value = "";
-// };
+document.addEventListener("DOMContentLoaded", function () {
+  let lastSentMessage = null;
 
-// document.getElementById("submit_btn").addEventListener("keypress", function (event) {
-//     // Check if the key pressed is "Enter" (key code 13)
-//     if (event.keyCode === 13) {
-//       handleInput();
-//       // Prevent default behavior of the Enter key (e.g., form submission)
-//       event.preventDefault();
-//     }
-//   });
+  const messageInput = document.getElementById("message-input");
+  const sendBtn = document.getElementById("send-btn");
+  const chatMessages = document.getElementById("chat-messages");
+  const typingIndicator = document.getElementById("typing-indicator");
+  typingIndicator.textContent = "Someone is typing...";
+  typingIndicator.classList.add("typing-animation");
+  typingIndicator.style.visibility = "hidden";
 
-// // Event listener for click event
-// document.getElementById("submit_btn").addEventListener("click", function () {
-//   handleInput();
-// });
+  function autoReceiveMessage() {
+    typingIndicator.style.visibility = "visible";
+    setTimeout(function () {
+      typingIndicator.style.visibility = "hidden";
+      appendMessage("received", "Thanks for your message!");
+    }, 3000);
+  }
 
-// const handleInput = () => {
-//   const inputField = document.getElementById("input_field");
-//   const inputText = inputField.value;
+  sendBtn.addEventListener("click", sendMessage);
 
-//   console.log(inputText);
-//   const targetDiv = document.getElementById("first_person");
-//   const p = `<p class='dynamic-content'>${inputText}</p>`;
-//   targetDiv.innerHTML = p;
-//   inputField.value = "";
-// };
+  messageInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  });
 
-// // Event listener for keypress event
-// document
-//   .getElementById("input_field")
-//   .addEventListener("keypress", function (event) {
-//     if (event.key === "Enter") {
-//       handleInput();
-//       event.preventDefault();
-//     }
-//   });
+  function sendMessage() {
+    const message = messageInput.value.trim();
+    if (message !== "") {
+      const messageDiv = appendMessage("sent", message);
+      const sentTick = appendTick("grey", messageDiv);
+      setTimeout(function () {
+        sentTick.style.color = "black"; // Delivered
+        setTimeout(function () {
+          sentTick.style.color = "green"; // Read
+        }, 1000);
+      }, 2000);
 
-// document.getElementById("submit_btn").addEventListener("click", function () {
-//   handleInput();
-// });
+      lastSentMessage = messageDiv;
 
+      setTimeout(function () {
+        typingIndicator.style.visibility = "visible";
+      }, 3000);
 
-const getInputText = () => {
-  const inputField = document.getElementById("input_field");
-  return inputField.value;
-};
+      setTimeout(function () {
+        typingIndicator.style.visibility = "hidden";
+        appendMessage("received", "Thanks for your message!");
+      }, 7000);
 
-const addParagraphElement = (text) => {
-  const targetDiv = document.getElementById("first_person");
-  const paragraphElement = document.createElement("p");
-  paragraphElement.textContent = text;
-  paragraphElement.classList.add("dynamic-content");
-  targetDiv.appendChild(paragraphElement);
-};
+      messageInput.value = "";
+    }
+  }
 
-const handleInput = () => {
-  const inputText = getInputText();
-  addParagraphElement(inputText);
-  const inputField = document.getElementById("input_field");
-  inputField.value = "";
-};
+  function appendMessage(type, content) {
+    const messageDiv = document.createElement("div");
+    messageDiv.className = "chat-message " + type;
 
-document.getElementById("input_field").addEventListener("keypress", function (event) {
-  if (event.key === "Enter") {
-    handleInput();
-    event.preventDefault();
+    const profilePicContainer = document.createElement("div");
+    profilePicContainer.className = "profile-pic";
+
+    const profilePicImg = document.createElement("img");
+    profilePicImg.src =
+      type === "sent" ? "assets/profile-pic (5).png" : "assets/profile-pic (6).png";
+    profilePicImg.alt = "Profile Picture";
+    profilePicImg.className = "profile-pic-img";
+
+    profilePicContainer.appendChild(profilePicImg);
+
+    const contentContainer = document.createElement("div");
+    contentContainer.className = "message-content";
+
+    const messageTextSpan = document.createElement("span");
+    messageTextSpan.textContent = content;
+
+    contentContainer.appendChild(messageTextSpan);
+
+    messageDiv.appendChild(profilePicContainer);
+    messageDiv.appendChild(contentContainer);
+
+    chatMessages.prepend(messageDiv);
+    chatMessages.scrollTop = 0;
+
+    if (type === "sent" && lastSentMessage) {
+      const lastSentProfilePicContainer =
+        lastSentMessage.querySelector(".profile-pic");
+      if (lastSentProfilePicContainer) {
+        lastSentProfilePicContainer.remove();
+      }
+    }
+
+    if (type === "sent") {
+      lastSentMessage = messageDiv;
+    }
+
+    return messageDiv;
+  }
+
+  function appendTick(color, messageDiv) {
+    const tickSpan = document.createElement("span");
+    tickSpan.className = "tick-mark";
+    tickSpan.textContent = "✔";
+    tickSpan.style.color = color;
+
+    messageDiv.appendChild(tickSpan);
+    return tickSpan;
   }
 });
-
-document.getElementById("submit_btn").addEventListener("click", function () {
-  handleInput();
-});
-
-
+ 
